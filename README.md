@@ -22,3 +22,10 @@ sudo yum install -y apache-maven
 #set java_home
 export JAVA_HOME="/usr/lib/jvm/java-openjdk"
 export PATH=$PATH:$JAVA_HOME/bin
+
+#Run
+mvn package
+java -cp target/roomate-app-1.0-SNAPSHOT.jar com.nitin.roomate.App
+
+#Output
+Hello World!
