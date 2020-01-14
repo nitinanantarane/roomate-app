@@ -52,12 +52,7 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
-          <configuration>
-          	<source>1.8</source>
-            <target>1.8</target>
-        	<fork>true</fork>
-        	<executable>/usr/lib/jvm/java-openjdk/javac</executable>
-    	  </configuration>
+          
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
