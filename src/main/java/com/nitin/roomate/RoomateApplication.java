@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Bean;/*
 public class RoomateApplication{
 
 	public static void main(String[] args) {
-		System.out.println(">>>>>>>Hello");
 		SpringApplication.run(RoomateApplication.class, args);
 	}
 	
