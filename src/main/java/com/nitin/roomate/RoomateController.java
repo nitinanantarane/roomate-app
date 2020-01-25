@@ -1,24 +1,32 @@
 package com.nitin.roomate;
 
-import java.util.concurrent.atomic.AtomicLong;
-
+import com.nitin.roomate.repository.dynamodb.DynamoDBLocalSetup;
+import com.nitin.roomate.repository.dynamodb.RoomateRepository;
+import com.nitin.roomate.repository.dynamodb.model.RoomateInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 @Controller
 public class RoomateController {
 	
 	private AtomicLong counter = new AtomicLong();
 	private String template = "Hello, %s";
-	
+
+	//@Autowired
+	private static RoomateRepository roomateRepository = DynamoDBLocalSetup.getRoomateRepository();
+
 	@RequestMapping("/hello")
 	@ResponseBody
 	public Roomate hello(@RequestParam(name = "name", defaultValue = "World!")
 			String name) {
-		return new Roomate(counter.incrementAndGet(), String.format(template, name));
+		long id = counter.incrementAndGet();
+		roomateRepository.save(new RoomateInfo(id, "Nitin Rane"));
+		return new Roomate(id, String.format(template, name));
 	}
 
 	@RequestMapping("/")
@@ -47,4 +55,5 @@ public class RoomateController {
 		
 		return "login";
 	}
+
 }
