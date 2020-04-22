@@ -20,3 +20,11 @@ $ sudo ./install.sh
 ---- python
 sudo pip install gunicorn
 sudo pip install -r requirements.txt
+
+---- docker
+sudo yum update -y
+sudo yum install docker -y
+sudo docker images
+sudo usermod -a -G docker ec2-user
+sudo service docker start
+sudo service docker status
