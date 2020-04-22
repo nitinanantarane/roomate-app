@@ -30,3 +30,7 @@ sudo service docker start
 sudo service docker status
 sudo docker build -f Dockerfile -t docker-spring-boot .
 sudo docker run -p 8085:8085 docker-spring-boot
+
+aws ecr get-login --no-include-email --region us-east-1
+docker tag ae15611663b9 415024401597.dkr.ecr.us-east-1.amazonaws.com/hello-sb-repository:latest
+docker push 415024401597.dkr.ecr.us-east-1.amazonaws.com/hello-sb-repository:latest
