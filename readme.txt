@@ -28,3 +28,4 @@ sudo docker images
 sudo usermod -a -G docker ec2-user
 sudo service docker start
 sudo service docker status
+sudo docker build -f Dockerfile -t docker-spring-boot .
