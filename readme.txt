@@ -81,3 +81,7 @@ curl -s https://xxxxxxx.execute-api.us-west-2.amazonaws.com/Prod/ping | python -
 {
     "pong": "Hello, World!"
 }
+
+
+##CUCUMBER
+clean -Denv=qa -Dtest=**/*Runner test install
